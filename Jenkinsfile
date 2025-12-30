@@ -18,6 +18,7 @@ environment {
                     sh """
                         echo "Building----------A-Build"
                         echo "COurse we learn is : $COURSE"
+                        env
                        """ 
                 }
             }
