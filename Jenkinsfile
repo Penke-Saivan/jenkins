@@ -1,4 +1,6 @@
 pipeline {
+
+    #agent configured
     agent {
     node {
         label 'AGENT-1'
@@ -8,9 +10,17 @@ pipeline {
 
 
 }
+
+#environment variables
 environment { 
         COURSE = 'Jenkin'
     }
+ #after the timeout abort the pipeline    
+    options {
+        timeout(time: 10, unit: 'SECONDS') 
+    }
+
+ #build stage   
     stages {
         stage('Building') {
             steps {
@@ -18,6 +28,7 @@ environment {
                     sh """
                         echo "Building----------A-Build"
                         echo "COurse we learn is : $COURSE"
+                        sleep 10
                         env
                        """ 
                 }
@@ -55,6 +66,7 @@ environment {
         }
         aborted{
             echo "someone -aborted--------------------------------"
+            echo "timeeout  -aborted--------------------------------"
         }
     }
 }
