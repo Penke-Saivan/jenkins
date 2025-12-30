@@ -34,7 +34,7 @@ pipeline {
             echo "failure---------------"
         }
         aborted{
-            echo "someone -aborted-----------!@#######$#$@$##@!#!!##"
+            echo "someone -aborted--------------------------------"
         }
     }
 }
