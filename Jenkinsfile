@@ -22,4 +22,19 @@ pipeline {
             }
         }
     }
+        post { 
+        always { 
+            echo 'I will always say Hello again!'
+            cleanWs()
+        }
+        success{
+            echo "Success---------------"
+        }
+        failure{
+            echo "failure---------------"
+        }
+        aborted{
+            echo "someone -aborted-----------!@#######$#$@$##@!#!!##"
+        }
+    }
 }
