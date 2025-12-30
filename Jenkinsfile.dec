@@ -6,13 +6,9 @@ pipeline {
     }
 }
     stages {
-        stage('Building') {
+        stage('Build') {
             steps {
-                script{
-                    sh """
-                        echo "Building----------A-Build"
-                       """ 
-                }
+                echo "Building"
             }
         }
         stage('Test') {
