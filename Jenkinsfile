@@ -18,7 +18,7 @@ parameters {
 
         text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
 
-        booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
+        booleanParam(name: 'DEPLOY', defaultValue: false, description: 'Toggle this value')
 
         choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
 
@@ -50,7 +50,7 @@ environment {
 
                         echo "Biography: ${params.BIOGRAPHY}"
 
-                        echo "Toggle: ${params.TOGGLE}"
+                        echo "DEPLOY: ${params.DEPLOY}"
 
                         echo "Choice: ${params.CHOICE}"
 
@@ -61,13 +61,13 @@ environment {
         }
         stage('Test') {
             
-            input {
-                message "Should we continue?"
-                ok "Yes, we should."
-                submitter "alice,bob"
-                parameters {
-                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-                }}
+            // input {
+            //     message "Should we continue?"
+            //     ok "Yes, we should."
+            //     submitter "alice,bob"
+            //     parameters {
+            //         string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+            //     }}
 
             steps {
             script{
@@ -78,10 +78,14 @@ environment {
             }
         }
         stage('Deploy') {
+
+  when {
+                expression { ${params.DEPLOY} == true }
+
             steps {
                 script{
                     sh """
-                        echo "Building----------A-Deployment"
+                        echo "Building----------A-Deployment------------------WHEN-CONDITION"
                        """ 
                 }
             }
