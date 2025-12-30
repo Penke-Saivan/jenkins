@@ -79,8 +79,10 @@ environment {
         }
         stage('Deploy') {
 
-  when {
-                expression { ${params.DEPLOY} == true }
+            when {
+                expression {
+                     ${params.DEPLOY} == "true" 
+                }
                 
                 }
 
