@@ -5,11 +5,12 @@ pipeline {
         
     }
 
+
+
+}
 environment { 
         COURSE = 'Jenkin'
     }
-
-}
     stages {
         stage('Building') {
             steps {
