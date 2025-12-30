@@ -80,6 +80,7 @@ environment {
         stage('Deploy') {
 
             when {
+                // ver important for deployment
                 expression {
                      "${params.DEPLOY}" == "true" 
                 }
