@@ -13,7 +13,7 @@ pipeline {
 
 }
 
-#environment variables
+// environment variables
 environment { 
         COURSE = 'Jenkin'
     }
