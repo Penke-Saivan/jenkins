@@ -25,7 +25,7 @@ parameters {
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
     }
 
-    
+
 // environment variables
 environment { 
         COURSE = 'Jenkin'
@@ -46,6 +46,15 @@ environment {
                         echo "COurse we learn is : $COURSE"
                         sleep 10
                         env
+                        echo "Hello ${params.PERSON}"
+
+                        echo "Biography: ${params.BIOGRAPHY}"
+
+                        echo "Toggle: ${params.TOGGLE}"
+
+                        echo "Choice: ${params.CHOICE}"
+
+                        echo "Password: ${params.PASSWORD}"
                        """ 
                 }
             }
