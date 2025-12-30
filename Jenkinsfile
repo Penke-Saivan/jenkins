@@ -81,7 +81,7 @@ environment {
 
             when {
                 expression {
-                     ${params.DEPLOY} == "true" 
+                     "${params.DEPLOY}" == "true" 
                 }
                 
                 }
