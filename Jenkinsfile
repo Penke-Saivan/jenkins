@@ -1,6 +1,8 @@
 pipeline {
 
-    #agent configured
+    // ------------pre-build-----------------
+
+    // agent configured
     agent {
     node {
         label 'AGENT-1'
@@ -15,12 +17,12 @@ pipeline {
 environment { 
         COURSE = 'Jenkin'
     }
- #after the timeout abort the pipeline    
+//  after the timeout abort the pipeline    
     options {
         timeout(time: 10, unit: 'SECONDS') 
     }
 
- #build stage   
+// ------------------- build stage -----------------------  
     stages {
         stage('Building') {
             steps {
@@ -53,6 +55,8 @@ environment {
             }
         }
     }
+
+    // --------------------------post build--------------------
         post { 
         always { 
             echo 'I will always say Hello again!'
@@ -66,7 +70,7 @@ environment {
         }
         aborted{
             echo "someone -aborted--------------------------------"
-            echo "timeeout  -aborted--------------------------------"
+            echo "may be timeeout  -aborted--------------------------------"
         }
     }
 }
