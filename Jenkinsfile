@@ -4,6 +4,11 @@ pipeline {
         label 'AGENT-1'
         
     }
+
+environment { 
+        COURSE = 'Jenkin'
+    }
+
 }
     stages {
         stage('Building') {
@@ -11,18 +16,27 @@ pipeline {
                 script{
                     sh """
                         echo "Building----------A-Build"
+                        echo "COurse we learn is : $COURSE"
                        """ 
                 }
             }
         }
         stage('Test') {
             steps {
-                echo "Testing"
+            script{
+                    sh """
+                        echo "Building----------A-Test"
+                       """ 
+                }
             }
         }
         stage('Deploy') {
             steps {
-                echo "Deploying"
+                script{
+                    sh """
+                        echo "Building----------A-Deployment"
+                       """ 
+                }
             }
         }
     }
